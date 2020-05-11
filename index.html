@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <link rel="stylesheet" href="./all.min.css">
+    <style>
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        /*boot css*/
+        .flex{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .inline-flex{
+            display: inline-flexbox;
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;  
+        }
+
+        .justify-content-between{
+            justify-content: space-between;
+        }
+
+        .justify-content-center{
+            -webkit-box-pack: center;
+            -ms-flex-pack:center ;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        .align-items-center{
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+        }
+        .flex-direction-column{
+            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -ms-flex-direction: column;
+            -webkit-flex-direction:column;
+        }
+        nav.menu{
+
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+            scroll-snap-type: x proximity;
+            height: 10vh;   
+        }
+
+        nav.menu::-webkit-scrollbar{
+            height: 0px;
+        }
+        .menu-item span{
+            color: #000;
+            font-weight: 800;
+        }
+        .menu-item{
+            background: #f4f4f4;
+            min-width: 75%;
+            scroll-snap-align: center;
+            height: 100%;
+            align-items: center;
+            padding-left: 1rem;
+
+        }
+        .sub-menu-item{
+            min-width:25%;
+            background: #d4d4d4;
+            scroll-snap-align: end;
+            height: 100%;
+            color: #fff;
+        }
+
+        .sub-menu-item > a:first-child{
+            background-color: lime;
+        }
+        .sub-menu-item > a:last-child{
+            background-color: crimson;
+        }
+        a{
+            height: 100%;
+            width: 50%;
+            color: #fff;
+            text-decoration: none;
+        }
+        #m2,#m1{
+            display: none;
+            position: fixed;
+            background: rgba(0, 0, 0, .45);
+            width: 100%;
+            height: 100vh;
+            top: 0px;
+            left: 0px;
+            transition: all 1s ;
+        }
+        #m1:target,#m2:target{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+            -webkit-box-pack: center;
+            -ms-flex-pack:center ;
+            -webkit-justify-content: center;
+            justify-content: center;
+            transition: all 1s ease-in-out;
+        }
+  
+        .alert-box{
+            width: 450px;
+            max-width: 80%;
+            height:150px;
+            background: #fff;
+            border-radius: 5px 5px 10px 10px;
+        }
+        .alert-box > *:first-child{
+            height: 80%;
+            width: 26ch;
+            text-align: center;
+        }
+        .alert-box > *:last-child {
+            width: 100%;
+            align-self:end;
+            height: 20%;
+            border-radius: 0px 0px 10px 10px;
+        }
+       
+        .alert-box > div a{
+            color: #000;
+            background: #ccc;
+        }
+        .alert-box > div a:first-child{
+            border-radius: 0px 0px 0px 10px;
+        }
+        .alert-box > div a:last-child{
+            border-radius: 0px 0px 10px 0px;
+        }
+
+        .alert-box > div a:hover{
+            color: #fff;
+            background: #000;
+        }
+        label{
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+        @media screen and (max-width: 769px) {
+
+        .menu-item{
+    
+            min-width: 100%;
+          
+        }
+        .sub-menu-item{
+            min-width: 35%;
+        }
+               
+        }
+    </style>
+</head>
+<body>  
+    <nav class="menu inline-flex justify-content-between">
+        <div class="menu-item flex"> 
+            <span> Marcos Antonio Cerqueira</span>
+        </div>
+        <div class="sub-menu-item flex align-items-center">
+            <a href="#m1" class="flex justify-content-center align-items-center flex-direction-column"><i class="fas fa-edit"></i>editar</a>
+            <a href="#m2" class="flex justify-content-center align-items-center flex-direction-column"><i class="fas fa-eraser"></i>excluir</a>
+        </div>
+    </nav>
+    <m2 id="m2">
+        <div class="alert-box flex  align-items-center justify-content-center flex-direction-column">
+            <span class="flex justify-content-center align-items-center flex-direction-column"> tem certeza que deseja excluir esse item ? </span>
+            <div class="flex">
+                <a href="" class="flex justify-content-center align-items-center">sim</a>
+                <a href="" class="flex justify-content-center align-items-center">não</a>
+            </div>
+        </div>
+    </m2>
+    <m1 id="m1">
+        <div class="alert-box flex  align-items-center justify-content-center flex-direction-column">
+            <div class="flex justify-content-center align-items-center flex-direction-column">
+                <form action="">
+                    <label for=""> nome: </label>
+                    <input type="text">
+                </form>
+            </div>
+            <div class="flex">
+                <a href="" class="flex justify-content-center align-items-center">salvar</a>
+                <a href="" class="flex justify-content-center align-items-center">cancelar</a>
+            </div>
+        </div>     
+    </m1>
+    <script src="./all.min.js"></script>
+
+</body>
+</html>
